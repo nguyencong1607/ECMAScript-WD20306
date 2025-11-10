@@ -27,7 +27,7 @@
 const multiply = (a, b) => {
   return a * b;
 };
-console.log(multiply(5 ,10))
+console.log(multiply(5, 10))
 
 // Function 2
 // function isPositive(number) {
@@ -88,13 +88,12 @@ function Arrays(...arrays) {
   return [].concat(...arrays);
 }
 console.log(Arrays([1, 2], [3, 4], [5, 6]));
-// Hàm sumAll tính tổng tất cả tham số truyền vào
 const sumAll = (...numbers) => {
   return numbers.reduce((total, currentNumber) => total + currentNumber, 0);
 };
 console.log("Tổng của mảng 1, 2, 3 =", sumAll(1, 2, 3));
 console.log("tong cảu mảng 5, 10, 15, 20 =", sumAll(5, 10, 15, 20));
-// Hàm createProduct nhận thông tin sản phẩm và trả về object sản phẩm với giá trị mặc định
+
 const createProduct = (
   name = "san pham khong ten",
   price = 0,
@@ -118,8 +117,8 @@ const gioHang = (tenKhach, ...sanPham) => ({
   ghiChu: "Hiển thị."
 });
 
-const don1 = gioHang("nguyễn Văn Công",123, "Laptop XYZ", "Chuột không dây", "Bàn phím cơ");
+const don1 = gioHang("nguyễn Văn Công", 123, "Laptop XYZ", "Chuột không dây", "Bàn phím cơ");
 console.log("đơn hàng 1:", don1);
 
-const don2 = gioHang("Trần thị Linh",221, "Áo thun", "Quần bò");
+const don2 = gioHang("Trần thị Linh", 221, "Áo thun", "Quần bò");
 console.log("đơn hàng 2:", don2);
