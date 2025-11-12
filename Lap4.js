@@ -24,8 +24,8 @@ const user = {
   personalInfo: {
     name: "javascript",
     contact: {
-      email: "javascript@email.com",
-      phone: "123-456-7890",
+      email: "12121@email.com",
+      phone: "1212333",
     },
   },
 };
@@ -57,3 +57,45 @@ function createProduct({ name, price, category = "general", inStock = true }) {
 
 const product = createProduct({ name: "Laptop", price: 999 });
 console.log(product);
+
+
+// Viết lại hàm này sử dụng async/await
+// function processOrder(orderId, callback) {
+//   getOrder(orderId, (order) => {
+//     getUser(order.userId, (user) => {
+//       getProducts(order.productIds, (products) => {
+//         callback({ order, user, products });
+//       });
+//     });
+//   });
+// }
+
+async function processOrder(orderId) {
+  try {
+    const order = await getOrder(orderId)
+    const user = await getUser(order.userId)
+    const products = await getProducts(order.productsId)
+
+    return {
+      ...order,
+      user,
+      products
+    }
+  }
+  catch (error) {
+    console.error("Processing failed:", error)
+  }
+}
+
+
+
+async function safeApiCall(apiFunction, ...args) {
+  // Your code here
+  try{
+    const data = await apiFunction(...args)
+    return [null, data]
+}catch(error){
+  return[error, undefined]
+}
+}
+;
